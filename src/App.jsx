@@ -1,18 +1,17 @@
-import { useState } from "react";
-import Frontpage from "./components/Frontpage";
-import GenerateText from "./function/generateText";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css'
+import Frontpage from './components/Frontpage'
+import OutputPage from './components/OutputPage'
 
 function App() {
-  const [answers, setAnswers] = useState({});
-  const [currentPage , setCurrentPage] = useState('welcome')
-
   return (
-    <>
-    
-      <Frontpage setAnswers={setAnswers} />
-      <GenerateText answers={answers} />
-    </>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" element={<Frontpage />} />
+        <Route path="/output" element={<OutputPage />} />
+      </Routes>
+    </Router>
+  )
 }
 
-export default App;
+export default App
