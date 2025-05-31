@@ -1,65 +1,89 @@
-import React from 'react'
-import { useState } from 'react'
-const TypeBox = () => {
+import React, { useState } from 'react';
+
+const TypeBox = ({ setAnswers }) => {
   const [context, setContext] = useState("");
   const [person, setPerson] = useState("");
   const [toWhom, setToWhom] = useState("");
   const [length, setLength] = useState("");
   const [tone, setTone] = useState("");
   const [relationship, setRelationship] = useState("");
-  const [answers, setAnswers] = useState({});
 
   const handleGenerate = () => {
-    setAnswers({
-      context ,
-      person , 
-      toWhom , 
-      length , 
-      tone , 
-      relationship
-    }); 
-  }
+    const answerObject = {
+      context,
+      person,
+      toWhom,
+      length,
+      tone,
+      relationship,
+    };
+    setAnswers(answerObject);
+  };
+
   return (
-    <div>
-      <div>
-        <div>
-        <input type="text" value = {context}
+    <div className="p-4 flex flex-col gap-4 max-w-md mx-auto">
+      <input
+        type="text"
+        value={context}
         onChange={(e) => setContext(e.target.value)}
-        placeholder='write context here' />
-        <button>Generate</button>
-        </div>
-        
-        <input type="text"  placeholder='person name '
-        value = {person}
+        placeholder="Write context here"
+        className="border p-2 rounded"
+      />
+            <button
+        onClick={handleGenerate}
+        className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+      >
+        Generate
+      </button>
+
+      <input
+        type="text"
+        placeholder="Person name"
+        value={person}
         onChange={(e) => setPerson(e.target.value)}
-        
-        />
+        className="border p-2 rounded"
+      />
 
-        
-        
+      <input
+        type="text"
+        placeholder="To whom"
+        value={toWhom}
+        onChange={(e) => setToWhom(e.target.value)}
+        className="border p-2 rounded"
+      />
 
-        <input type="text" placeholder=' to whom'  value={toWhom} 
-        onChange={(e) => setToWhom(e.target.value)}/> 
-<select name="length" value = {length} onChange={(e) => setLength(e.target.value)}
-  >
-  <option value="" disabled >
-    How long
-  </option>
-  <option value="long">long</option>
-  <option value="medium">medium</option>
-  <option value="short">short</option>
+      <select
+        value={length}
+        onChange={(e) => setLength(e.target.value)}
+        className="border p-2 rounded"
+      >
+        <option value="" disabled>
+          How long
+        </option>
+        <option value="long">Long</option>
+        <option value="medium">Medium</option>
+        <option value="short">Short</option>
+      </select>
 
-</select>
-<select name="tone" id="tone" value = {tone} onChange={(e) => setTone(e.target.value)}>
-  <option value="" disabled >
-    Select Tone
-  </option>
-  <option value="formal">Formal</option>
-  <option value="informal">Informal</option>
-  <option value="friendly">Friendly</option>
-</select>
-<select name="" id="tone" value={relationship}  onChange={(e) => setRelationship(e.target.value)}>
-       <option value="" disabled>
+      <select
+        value={tone}
+        onChange={(e) => setTone(e.target.value)}
+        className="border p-2 rounded"
+      >
+        <option value="" disabled>
+          Select Tone
+        </option>
+        <option value="formal">Formal</option>
+        <option value="informal">Informal</option>
+        <option value="friendly">Friendly</option>
+      </select>
+
+      <select
+        value={relationship}
+        onChange={(e) => setRelationship(e.target.value)}
+        className="border p-2 rounded"
+      >
+        <option value="" disabled>
           Relationship
         </option>
         <option value="teacher">Teacher</option>
@@ -68,14 +92,11 @@ const TypeBox = () => {
         <option value="friends">Friends</option>
         <option value="boss">Boss</option>
         <option value="colleague">Colleague</option>
-</select>
+      </select>
 
 
-        
-
-      </div>
     </div>
-  )
-}
+  );
+};
 
-export default TypeBox
+export default TypeBox;

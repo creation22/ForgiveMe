@@ -1,18 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Frontpage from './components/Frontpage'
-
+import { useState } from "react";
+import Frontpage from "./components/Frontpage";
+import GenerateText from "./function/generateText";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [answers, setAnswers] = useState({});
 
   return (
     <>
-    <Frontpage/>
+      <Frontpage setAnswers={setAnswers} />
+      <GenerateText answers={answers} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
