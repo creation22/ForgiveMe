@@ -16,7 +16,11 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-element-to-jsx-string": "^17.0.1",
+<<<<<<< HEAD
     "react-router-dom": "^7.6.1",
+=======
+    "react-router-dom": "^6.22.3",
+>>>>>>> bc86c49b64b7279f8b6f93759896211fcbdd055e
     "sonner": "^2.0.4",
     "tailwind-merge": "^3.3.0"
   },
