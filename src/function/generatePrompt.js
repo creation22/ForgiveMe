@@ -83,6 +83,12 @@ const relationshipMap = {
               - Professional respect
               - Willingness to rebuild trust
               - Workplace-appropriate solutions`,
+  parents : `Show filial respect while expressing:
+            - Genuine remorse
+            - Understanding of their concerns
+            - Appreciation for their guidance
+            - Commitment to do better
+            Maintain a balance between openness and respect for parental authority.`
 };
 
 

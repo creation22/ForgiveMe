@@ -139,6 +139,7 @@ const TypeBox = () => {
             <option value="principal">Principal</option>
             <option value="boss">Boss</option>
             <option value="colleague">Colleague</option>
+            <parents value = "parents">Parents</parents>
             <option value="friends">Friends</option>
             <option value="girlfriend">Girlfriend</option>
             <option value="boyfriend">Boyfriend</option>
