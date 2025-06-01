@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { IconSend } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 const TypeBox = () => {
   const navigate = useNavigate();
-  const [context, setContext] = useState("");
-  const [person, setPerson] = useState("");
-  const [toWhom, setToWhom] = useState("");
-  const [length, setLength] = useState("");
-  const [tone, setTone] = useState("");
-  const [relationship, setRelationship] = useState("");
+  const [context, setContext] = useState('');
+  const [person, setPerson] = useState('');
+  const [toWhom, setToWhom] = useState('');
+  const [length, setLength] = useState('');
+  const [tone, setTone] = useState('');
+  const [relationship, setRelationship] = useState('');
+  const [englishlevel, setEnglishLevel] = useState('');
 
   const handleGenerate = () => {
     const answers = {
@@ -18,122 +19,119 @@ const TypeBox = () => {
       toWhom,
       length,
       tone,
-      relationship
+      relationship,
+      englishlevel,
     };
     navigate('/output', { state: { answers } });
   };
 
-  const isFormValid = context && person && toWhom && length && tone && relationship;
-
   return (
-    <div className="max-w-2xl mx-auto p-6">
-      <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 space-y-6">
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
-              What would you like to apologize for?
-            </label>
-            <textarea
-              value={context}
-              onChange={(e) => setContext(e.target.value)}
-              placeholder="I want to apologize for..."
-              className="input-field min-h-[120px] resize-none"
-              rows={4}
-            />
-          </div>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="max-w-2xl mx-auto mt-8 p-8 bg-black dark:bg-gray-900 rounded-2xl shadow-lg space-y-6"
+    >
+      <h2 className="text-2xl font-semibold text-white dark:text-gray-100 text-center">
+        Generate Your Apology Letter
+      </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
-                Your name
-              </label>
-              <input
-                type="text"
-                placeholder="Your name"
-                value={person}
-                onChange={(e) => setPerson(e.target.value)}
-                className="input-field"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
-                Recipient's name
-              </label>
-              <input
-                type="text"
-                placeholder="Their name"
-                value={toWhom}
-                onChange={(e) => setToWhom(e.target.value)}
-                className="input-field"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
-                Length
-              </label>
-              <select
-                value={length}
-                onChange={(e) => setLength(e.target.value)}
-                className="select-field"
-              >
-                <option value="">Select length</option>
-                <option value="short">Short & Sweet</option>
-                <option value="medium">Balanced</option>
-                <option value="long">Detailed</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
-                Tone
-              </label>
-              <select
-                value={tone}
-                onChange={(e) => setTone(e.target.value)}
-                className="select-field"
-              >
-                <option value="">Select tone</option>
-                <option value="formal">Professional</option>
-                <option value="informal">Casual</option>
-                <option value="friendly">Warm & Friendly</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
-                Relationship
-              </label>
-              <select
-                value={relationship}
-                onChange={(e) => setRelationship(e.target.value)}
-                className="select-field"
-              >
-                <option value="">Select relationship</option>
-                <option value="teacher">Teacher</option>
-                <option value="principal">Principal</option>
-                <option value="girlfriend">Partner</option>
-                <option value="friends">Friend</option>
-                <option value="boss">Boss</option>
-                <option value="colleague">Colleague</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <button
+      {/* Context input + generate button */}
+      <div className="flex flex-col md:flex-row gap-3 items-start">
+        <input
+          type="text"
+          value={context}
+          onChange={(e) => setContext(e.target.value)}
+          placeholder="Write the context here..."
+          className="flex-1 p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+        />
+        <motion.button
+          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.03 }}
           onClick={handleGenerate}
-          disabled={!isFormValid}
-          className="btn-primary w-full flex items-center justify-center gap-2"
+          className="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-all"
         >
-          <span>Generate Apology</span>
-          <IconSend size={18} className="inline-block" />
-        </button>
+          Generate
+        </motion.button>
       </div>
-    </div>
+
+      {/* Other inputs/selects */}
+      <div className="flex flex-col md:flex-row md:flex-wrap md:gap-4 gap-4">
+        <input
+          type="text"
+          placeholder="Person's Name"
+          value={person}
+          onChange={(e) => setPerson(e.target.value)}
+          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+        />
+
+        <input
+          type="text"
+          placeholder="To Whom"
+          value={toWhom}
+          onChange={(e) => setToWhom(e.target.value)}
+          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+        />
+
+        <select
+          name="length"
+          value={length}
+          onChange={(e) => setLength(e.target.value)}
+          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+        >
+          <option value="" disabled>
+            How long?
+          </option>
+          <option value="long">Long</option>
+          <option value="medium">Medium</option>
+          <option value="short">Short</option>
+        </select>
+
+        <select
+          name="tone"
+          value={tone}
+          onChange={(e) => setTone(e.target.value)}
+          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+        >
+          <option value="" disabled>
+            Select Tone
+          </option>
+          <option value="formal">Formal</option>
+          <option value="informal">Informal</option>
+          <option value="friendly">Friendly</option>
+        </select>
+
+        <select
+          name="relationship"
+          value={relationship}
+          onChange={(e) => setRelationship(e.target.value)}
+          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+        >
+          <option value="" disabled>
+            Relationship
+          </option>
+          <option value="teacher">Teacher</option>
+          <option value="principal">Principal</option>
+          <option value="girlfriend">Girlfriend</option>
+          <option value="friends">Friends</option>
+          <option value="boss">Boss</option>
+          <option value="colleague">Colleague</option>
+        </select>
+
+        <select
+          name="englishlevel"
+          value={englishlevel}
+          onChange={(e) => setEnglishLevel(e.target.value)}
+          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+        >
+          <option value="" disabled>
+            English Level
+          </option>
+          <option value="normal">Normal</option>
+          <option value="polished">Polished</option>
+        </select>
+      </div>
+    </motion.div>
   );
 };
 
