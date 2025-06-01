@@ -8,8 +8,8 @@ function App() {
   return (
     <Router>
   
-      <Routes>
         <Analytics/>
+      <Routes>
         <Route path="/" element={<Frontpage />} />
         <Route path="/output" element={<OutputPage />} />
       </Routes>
