@@ -30,53 +30,57 @@ const TypeBox = () => {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="max-w-2xl mx-auto mt-8 p-8 bg-black dark:bg-gray-900 rounded-2xl shadow-lg space-y-6"
+      className="max-w-2xl mx-auto mt-8 p-4 sm:p-8 bg-black dark:bg-gray-900 rounded-2xl shadow-lg space-y-6"
     >
       <h2 className="text-2xl font-semibold text-white dark:text-gray-100 text-center">
         Make Things Right
       </h2>
 
       {/* Context input + generate button */}
-      <div className="flex gap-1 items-start">
+      <div className="flex flex-col sm:flex-row gap-3 items-start">
         <input
           type="text"
           required
           value={context}
           onChange={(e) => setContext(e.target.value)}
           placeholder="Write the context here briefly ..."
-          className="flex-1 p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+          className="flex-1 w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
         />
         <motion.button
           whileTap={{ scale: 0.95 }}
           whileHover={{ scale: 1.03 }}
           onClick={handleGenerate}
-          className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-all"
+          className="w-full sm:w-auto px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-all"
         >
           Create
         </motion.button>
       </div>
 
       {/* Other inputs/selects */}
-      <div className="flex flex-wrap gap-4">
-        <input
-          type="text"
-          required 
-          placeholder="Person's Name"
-          value={person}
-          onChange={(e) => setPerson(e.target.value)}
-          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="relative">
+          <input
+            type="text"
+            required 
+            placeholder="Person's Name"
+            value={person}
+            onChange={(e) => setPerson(e.target.value)}
+            className="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+          />
+        </div>
 
-        <input
-          type="text"
-          placeholder="Addressed To" 
-          required
-          value={toWhom}
-          onChange={(e) => setToWhom(e.target.value)}
-          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
-        />
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Addressed To" 
+            required
+            value={toWhom}
+            onChange={(e) => setToWhom(e.target.value)}
+            className="w-full p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
+          />
+        </div>
 
-        <div className="relative flex-grow min-w-[150px]">
+        <div className="relative">
           <select
             name="length"
             value={length}
@@ -98,7 +102,7 @@ const TypeBox = () => {
           </div>
         </div>
 
-        <div className="relative flex-grow min-w-[150px]">
+        <div className="relative">
           <select
             name="tone"
             required
@@ -120,7 +124,7 @@ const TypeBox = () => {
           </div>
         </div>
 
-        <div className="relative flex-grow min-w-[150px]">
+        <div className="relative">
           <select
             name="relationship"
             value={relationship}
@@ -137,8 +141,7 @@ const TypeBox = () => {
             <option value="colleague">Colleague</option>
             <option value="friends">Friends</option>
             <option value="girlfriend">Girlfriend</option>
-            <option value="friends">Boyfriend</option>
-
+            <option value="boyfriend">Boyfriend</option>
           </select>
           <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
             <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -147,7 +150,7 @@ const TypeBox = () => {
           </div>
         </div>
 
-        <div className="relative flex-grow min-w-[150px]">
+        <div className="relative">
           <select
             name="englishlevel"
             value={englishlevel}
