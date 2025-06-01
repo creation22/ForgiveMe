@@ -44,40 +44,47 @@ export function generatePrompt(answers) {
                - Appropriate humor if suitable for context`,
   };
 
-  const relationshipMap = {
-    teacher: `Maintain student-teacher respect while showing:
-              - Academic humility
-              - Commitment to improvement
-              - Understanding of classroom expectations
-              Avoid overly casual language.`,
-    principal: `Use formal school-appropriate language showing:
-                - Respect for authority
-                - Serious understanding of consequences
-                - Willingness to follow school policies
-                - Mature acceptance of responsibility`,
-    girlfriend: `Express emotional sincerity with:
-                 - Personal vulnerability
-                 - Romantic consideration
-                 - Future commitment
-                 - Appropriate affection
-                Balance honesty with sensitivity.`,
-    friends: `Keep it authentic and personal with:
-              - Shared experience references
-              - Inside jokes if appropriate
-              - Casual but meaningful language
-              - Clear desire to preserve friendship`,
-    boss: `Maintain professionalism while showing:
-            - Work-appropriate remorse
-            - Understanding of workplace impact
-            - Concrete improvement plan
-            - Respect for hierarchy
-            Avoid emotional oversharing.`,
-    colleague: `Use cooperative language emphasizing:
-                - Teamwork values
-                - Professional respect
-                - Willingness to rebuild trust
-                - Workplace-appropriate solutions`,
-  };
+const relationshipMap = {
+  teacher: `Maintain student-teacher respect while showing:
+            - Academic humility
+            - Commitment to improvement
+            - Understanding of classroom expectations
+            Avoid overly casual language.`,
+  principal: `Use formal school-appropriate language showing:
+              - Respect for authority
+              - Serious understanding of consequences
+              - Willingness to follow school policies
+              - Mature acceptance of responsibility`,
+  girlfriend: `Express emotional sincerity with:
+               - Personal vulnerability
+               - Romantic consideration
+               - Future commitment
+               - Appropriate affection
+               Balance honesty with sensitivity.`,
+  boyfriend: `Show genuine emotion with:
+              - Honest vulnerability
+              - Thoughtful consideration
+              - Commitment to growth
+              - Respectful affection
+              Keep tone heartfelt but balanced.`,
+  friends: `Keep it authentic and personal with:
+            - Shared experience references
+            - Inside jokes if appropriate
+            - Casual but meaningful language
+            - Clear desire to preserve friendship`,
+  boss: `Maintain professionalism while showing:
+          - Work-appropriate remorse
+          - Understanding of workplace impact
+          - Concrete improvement plan
+          - Respect for hierarchy
+          Avoid emotional oversharing.`,
+  colleague: `Use cooperative language emphasizing:
+              - Teamwork values
+              - Professional respect
+              - Willingness to rebuild trust
+              - Workplace-appropriate solutions`,
+};
+
 
   const englishLevelMap = {
     normal: `Use natural, everyday English with correct grammar but allow for:

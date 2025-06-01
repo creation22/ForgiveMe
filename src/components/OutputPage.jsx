@@ -38,7 +38,7 @@ const OutputPage = () => {
 
   const handleTweet = () => {
     const tweetText = encodeURIComponent(
-      `${textRef.current.innerText.slice(0, 240)}...\n\n#ApologyLetterGenerator`
+      `${textRef.current.innerText.slice(0, 240)}...\n\n#SaySorry`
     );
     const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
     window.open(tweetUrl, '_blank');
@@ -48,7 +48,7 @@ const OutputPage = () => {
     <div className="min-h-screen p-6 flex items-center justify-center bg-[linear-gradient(to_bottom_right,_#03f4fc,_#1c1c1c)] font-sans relative">
       {/* GitHub Link */}
       <a
-        href="https://github.com/yourusername/your-repo"
+        href="https://github.com/creation22/ForgiveMe"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed top-4 left-4 px-3 py-1 bg-gray-800 text-white rounded hover:bg-gray-700 transition text-sm z-50"
@@ -58,7 +58,7 @@ const OutputPage = () => {
 
       {/* Buy Me a Coffee */}
       <a
-        href="https://www.buymeacoffee.com/yourusername"
+        href="https://www.buymeacoffee.com/creation22"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed top-4 right-4 px-3 py-1 bg-yellow-400 text-black rounded hover:bg-yellow-300 transition text-sm font-semibold z-50"
@@ -102,7 +102,7 @@ const OutputPage = () => {
             className="flex items-center gap-2 px-4 py-2 bg-[#1DA1F2] text-white rounded-md hover:bg-[#0d8ddb] transition"
           >
             <FaTwitter />
-            Share on Twitter
+            Twitter
           </button>
         </div>
       </div>

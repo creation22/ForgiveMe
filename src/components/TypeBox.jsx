@@ -37,9 +37,10 @@ const TypeBox = () => {
       </h2>
 
       {/* Context input + generate button */}
-      <div className="flex gap-3 items-start">
+      <div className="flex gap-1 items-start">
         <input
           type="text"
+          required
           value={context}
           onChange={(e) => setContext(e.target.value)}
           placeholder="Write the context here briefly ..."
@@ -59,6 +60,7 @@ const TypeBox = () => {
       <div className="flex flex-wrap gap-4">
         <input
           type="text"
+          required 
           placeholder="Person's Name"
           value={person}
           onChange={(e) => setPerson(e.target.value)}
@@ -67,7 +69,8 @@ const TypeBox = () => {
 
         <input
           type="text"
-          placeholder="To Whom"
+          placeholder="Addressed To" 
+          required
           value={toWhom}
           onChange={(e) => setToWhom(e.target.value)}
           className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
@@ -77,6 +80,7 @@ const TypeBox = () => {
           <select
             name="length"
             value={length}
+            required 
             onChange={(e) => setLength(e.target.value)}
             className="w-full p-3 pl-3 pr-8 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all appearance-none cursor-pointer"
           >
@@ -97,6 +101,7 @@ const TypeBox = () => {
         <div className="relative flex-grow min-w-[150px]">
           <select
             name="tone"
+            required
             value={tone}
             onChange={(e) => setTone(e.target.value)}
             className="w-full p-3 pl-3 pr-8 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all appearance-none cursor-pointer"
@@ -119,6 +124,7 @@ const TypeBox = () => {
           <select
             name="relationship"
             value={relationship}
+            required
             onChange={(e) => setRelationship(e.target.value)}
             className="w-full p-3 pl-3 pr-8 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all appearance-none cursor-pointer"
           >
@@ -145,6 +151,7 @@ const TypeBox = () => {
           <select
             name="englishlevel"
             value={englishlevel}
+            required 
             onChange={(e) => setEnglishLevel(e.target.value)}
             className="w-full p-3 pl-3 pr-8 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all appearance-none cursor-pointer"
           >
