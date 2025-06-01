@@ -8,6 +8,7 @@ const Frontpage = ({ setAnswers }) => {
     <div>
       <ContainerTextFlipDemo />
       <TypeBox setAnswers={setAnswers} />
+      <h1 className="text-5xl font-bold flex items-center justify-center m-14"> Our Top Users</h1>
       <InfiniteMovingCardsDemo />
     </div>
   );

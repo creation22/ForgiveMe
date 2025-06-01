@@ -14,7 +14,7 @@ export function ContainerTextFlipDemo() {
         opacity: 1,
       }}
       className={cn(
-        "relative mb-6 max-w-2xl text-left text-4xl leading-normal font-bold tracking-tight text-zinc-700 md:text-7xl dark:text-zinc-100"
+        "relative mb-6  text-left text-4xl leading-normal font-bold tracking-tight text-zinc-700 md:text-7xl dark:text-zinc-100"
       )}
       layout>
       <div className="inline-block">
