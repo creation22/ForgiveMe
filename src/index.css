@@ -16,7 +16,7 @@
 }
 
 .select-field {
-  @apply input-field appearance-none bg-right-8 bg-no-repeat pr-10;
+  @apply input-field appearance-none bg-[right_2rem] bg-no-repeat pr-10;
 }
 
 .btn-primary {
