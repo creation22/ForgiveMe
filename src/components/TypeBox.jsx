@@ -1,6 +1,6 @@
-import React from 'react'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { IconSend } from '@tabler/icons-react';
 
 const TypeBox = () => {
   const navigate = useNavigate();
@@ -21,84 +21,120 @@ const TypeBox = () => {
       relationship
     };
     navigate('/output', { state: { answers } });
-  }
+  };
+
+  const isFormValid = context && person && toWhom && length && tone && relationship;
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
-      <div className="space-y-4">
-        <div className="flex gap-2">
-          <input 
-            type="text" 
-            value={context}
-            onChange={(e) => setContext(e.target.value)}
-            placeholder="Write context here"
-            className="flex-1 p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
-          />
-          <button 
-            onClick={handleGenerate}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-          >
-            Generate
-          </button>
+    <div className="max-w-2xl mx-auto p-6">
+      <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 space-y-6">
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
+              What would you like to apologize for?
+            </label>
+            <textarea
+              value={context}
+              onChange={(e) => setContext(e.target.value)}
+              placeholder="I want to apologize for..."
+              className="input-field min-h-[120px] resize-none"
+              rows={4}
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
+                Your name
+              </label>
+              <input
+                type="text"
+                placeholder="Your name"
+                value={person}
+                onChange={(e) => setPerson(e.target.value)}
+                className="input-field"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
+                Recipient's name
+              </label>
+              <input
+                type="text"
+                placeholder="Their name"
+                value={toWhom}
+                onChange={(e) => setToWhom(e.target.value)}
+                className="input-field"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
+                Length
+              </label>
+              <select
+                value={length}
+                onChange={(e) => setLength(e.target.value)}
+                className="select-field"
+              >
+                <option value="">Select length</option>
+                <option value="short">Short & Sweet</option>
+                <option value="medium">Balanced</option>
+                <option value="long">Detailed</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
+                Tone
+              </label>
+              <select
+                value={tone}
+                onChange={(e) => setTone(e.target.value)}
+                className="select-field"
+              >
+                <option value="">Select tone</option>
+                <option value="formal">Professional</option>
+                <option value="informal">Casual</option>
+                <option value="friendly">Warm & Friendly</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2 text-slate-700 dark:text-slate-300">
+                Relationship
+              </label>
+              <select
+                value={relationship}
+                onChange={(e) => setRelationship(e.target.value)}
+                className="select-field"
+              >
+                <option value="">Select relationship</option>
+                <option value="teacher">Teacher</option>
+                <option value="principal">Principal</option>
+                <option value="girlfriend">Partner</option>
+                <option value="friends">Friend</option>
+                <option value="boss">Boss</option>
+                <option value="colleague">Colleague</option>
+              </select>
+            </div>
+          </div>
         </div>
-        
-        <input 
-          type="text"  
-          placeholder="Person name"
-          value={person}
-          onChange={(e) => setPerson(e.target.value)}
-          className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
-        />
 
-        <input 
-          type="text" 
-          placeholder="To whom"  
-          value={toWhom} 
-          onChange={(e) => setToWhom(e.target.value)}
-          className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
-        />
-
-        <select 
-          name="length" 
-          value={length} 
-          onChange={(e) => setLength(e.target.value)}
-          className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
+        <button
+          onClick={handleGenerate}
+          disabled={!isFormValid}
+          className="btn-primary w-full flex items-center justify-center gap-2"
         >
-          <option value="" disabled>How long</option>
-          <option value="long">Long</option>
-          <option value="medium">Medium</option>
-          <option value="short">Short</option>
-        </select>
-
-        <select 
-          name="tone" 
-          value={tone} 
-          onChange={(e) => setTone(e.target.value)}
-          className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
-        >
-          <option value="" disabled>Select Tone</option>
-          <option value="formal">Formal</option>
-          <option value="informal">Informal</option>
-          <option value="friendly">Friendly</option>
-        </select>
-
-        <select 
-          name="relationship" 
-          value={relationship}  
-          onChange={(e) => setRelationship(e.target.value)}
-          className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600"
-        >
-          <option value="" disabled>Relationship</option>
-          <option value="teacher">Teacher</option>
-          <option value="principal">Principal</option>
-          <option value="girlfriend">Girlfriend</option>
-          <option value="friends">Friends</option>
-          <option value="boss">Boss</option>
-          <option value="colleague">Colleague</option>
-        </select>
+          <span>Generate Apology</span>
+          <IconSend size={18} className="inline-block" />
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TypeBox
+export default TypeBox;
