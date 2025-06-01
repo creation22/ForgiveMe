@@ -18,7 +18,7 @@ export function ContainerTextFlipDemo() {
       )}
       layout>
       <div className="inline-block">
-        Because everyone deserves a second chance <ContainerTextFlip words={words} />
+        Bridge the gap with Words that Heals <ContainerTextFlip words={words} />
         {/* <Blips /> */}
       </div>
     </motion.h1>
