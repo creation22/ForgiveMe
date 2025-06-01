@@ -37,7 +37,7 @@ const TypeBox = () => {
       </h2>
 
       {/* Context input + generate button */}
-      <div className="flex flex-col md:flex-row gap-3 items-start">
+      <div className="flex gap-3 items-start">
         <input
           type="text"
           value={context}
@@ -49,14 +49,14 @@ const TypeBox = () => {
           whileTap={{ scale: 0.95 }}
           whileHover={{ scale: 1.03 }}
           onClick={handleGenerate}
-          className="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-all"
+          className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 transition-all"
         >
           Generate
         </motion.button>
       </div>
 
       {/* Other inputs/selects */}
-      <div className="flex flex-col md:flex-row md:flex-wrap md:gap-4 gap-4">
+      <div className="flex flex-wrap gap-4">
         <input
           type="text"
           placeholder="Person's Name"
@@ -73,63 +73,91 @@ const TypeBox = () => {
           className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
         />
 
-        <select
-          name="length"
-          value={length}
-          onChange={(e) => setLength(e.target.value)}
-          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
-        >
-          <option value="" disabled>
-            How long?
-          </option>
-          <option value="long">Long</option>
-          <option value="medium">Medium</option>
-          <option value="short">Short</option>
-        </select>
+        <div className="relative flex-grow min-w-[150px]">
+          <select
+            name="length"
+            value={length}
+            onChange={(e) => setLength(e.target.value)}
+            className="w-full p-3 pl-3 pr-8 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all appearance-none cursor-pointer"
+          >
+            <option value="" disabled className="text-gray-400">
+              How long?
+            </option>
+            <option value="long">Long</option>
+            <option value="medium">Medium</option>
+            <option value="short">Short</option>
+          </select>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
 
-        <select
-          name="tone"
-          value={tone}
-          onChange={(e) => setTone(e.target.value)}
-          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
-        >
-          <option value="" disabled>
-            Select Tone
-          </option>
-          <option value="formal">Formal</option>
-          <option value="informal">Informal</option>
-          <option value="friendly">Friendly</option>
-        </select>
+        <div className="relative flex-grow min-w-[150px]">
+          <select
+            name="tone"
+            value={tone}
+            onChange={(e) => setTone(e.target.value)}
+            className="w-full p-3 pl-3 pr-8 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all appearance-none cursor-pointer"
+          >
+            <option value="" disabled className="text-gray-400">
+              Select Tone
+            </option>
+            <option value="formal">Formal</option>
+            <option value="informal">Informal</option>
+            <option value="friendly">Friendly</option>
+          </select>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
 
-        <select
-          name="relationship"
-          value={relationship}
-          onChange={(e) => setRelationship(e.target.value)}
-          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
-        >
-          <option value="" disabled>
-            Relationship
-          </option>
-          <option value="teacher">Teacher</option>
-          <option value="principal">Principal</option>
-          <option value="girlfriend">Girlfriend</option>
-          <option value="friends">Friends</option>
-          <option value="boss">Boss</option>
-          <option value="colleague">Colleague</option>
-        </select>
+        <div className="relative flex-grow min-w-[150px]">
+          <select
+            name="relationship"
+            value={relationship}
+            onChange={(e) => setRelationship(e.target.value)}
+            className="w-full p-3 pl-3 pr-8 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all appearance-none cursor-pointer"
+          >
+            <option value="" disabled className="text-gray-400">
+              Relationship
+            </option>
+            <option value="teacher">Teacher</option>
+            <option value="principal">Principal</option>
+            <option value="girlfriend">Girlfriend</option>
+            <option value="friends">Friends</option>
+            <option value="boss">Boss</option>
+            <option value="colleague">Colleague</option>
+          </select>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
 
-        <select
-          name="englishlevel"
-          value={englishlevel}
-          onChange={(e) => setEnglishLevel(e.target.value)}
-          className="flex-grow min-w-[150px] p-3 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all"
-        >
-          <option value="" disabled>
-            English Level
-          </option>
-          <option value="normal">Normal</option>
-          <option value="polished">Polished</option>
-        </select>
+        <div className="relative flex-grow min-w-[150px]">
+          <select
+            name="englishlevel"
+            value={englishlevel}
+            onChange={(e) => setEnglishLevel(e.target.value)}
+            className="w-full p-3 pl-3 pr-8 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-white transition-all appearance-none cursor-pointer"
+          >
+            <option value="" disabled className="text-gray-400">
+              English Level
+            </option>
+            <option value="normal">Normal</option>
+            <option value="polished">Polished</option>
+          </select>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
