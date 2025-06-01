@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import GenerateText from '../function/generateText';
-
+import { BackgroundLines } from './ui/background-lines';
 const OutputPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -9,17 +9,20 @@ const OutputPage = () => {
 
   if (!answers) {
     return (
+      <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
+
+      
       <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
         <div className="text-center">
           <p className="text-xl mb-4">No data available. Please fill the form first.</p>
           <button 
             onClick={() => navigate('/')}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-          >
+            >
             Go Back
           </button>
         </div>
       </div>
+      </BackgroundLines>
     );
   }
 
